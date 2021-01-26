@@ -1,7 +1,7 @@
 import unified from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
-import rehypeShiki from "../src/index";
+import rehypeShiki from ".";
 import rehypeStringify from "rehype-stringify";
 import * as shiki from "shiki";
 

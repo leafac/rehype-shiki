@@ -14,13 +14,15 @@ $ npm install shiki-rehype
 
 ### Example
 
-```js
-const unified = require("unified");
-const remarkParse = require("remark-parse");
-const remarkRehype = require("remark-rehype");
-const rehypeShiki = require("shiki-rehype");
-const rehypeStringify = require("rehype-stringify");
-const shiki = require("shiki");
+`example.ts`
+
+```ts
+import unified from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeShiki from "shiki-rehype";
+import rehypeStringify from "rehype-stringify";
+import * as shiki from "shiki";
 
 (async () => {
   console.log(
@@ -39,8 +41,13 @@ return unified()
 `
       )
       .toString()
-  ); // => "<pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>"
+  );
 })();
+```
+
+```console
+$ npx ts-node example.ts
+<pre class="shiki" style="background-color: #FFFFFF"><code><span class="line"><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">unified</span><span style="color: #000000">()</span></span></code></pre>
 ```
 
 ### Options

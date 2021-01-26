@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/leafac/shiki-rehype#readme",
   "scripts": {
-    "test": "prettier --check 'src/**/*' 'tests/**/*' && jest",
+    "test": "prettier --check 'src/**/*' && jest",
     "build": "tsc",
     "clean": "shx rm -rf lib"
   },

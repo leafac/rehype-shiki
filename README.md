@@ -61,6 +61,8 @@ Shiki Rehype doesn’t open you up to [cross-site scripting (XSS)](https://en.wi
 
 ### How Is This Different from [rehype-shiki](https://github.com/rsclarke/rehype-shiki)?
 
+rehype-shiki is great! That’s how I learned about Shiki and I fell in love with it. The following are the ways in which Shiki Rehype is different:
+
 1. TypeScript support.
 2. Shiki is declared as a [`peerDependency`](https://docs.npmjs.com/cli/v6/configuring-npm/package-json#peerdependencies), so Shiki Rehype doesn’t have to be updated when new versions of Shiki are released (as long as Shiki’s API remain compatible). See https://github.com/rsclarke/rehype-shiki/pull/48 https://github.com/rsclarke/rehype-shiki/pull/46 https://github.com/rsclarke/rehype-shiki/issues/47 https://github.com/rsclarke/rehype-shiki/issues/2.
 3. You must pass in an instance of the Shiki highlighter, Shiki Rehype won’t create one for you. This means that:

@@ -23,7 +23,7 @@ return unified()
       )
       .toString()
   ).toMatchInlineSnapshot(
-    `"<pre><code class=\\"language-javascript\\"><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>"`
+    `"<pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>"`
   );
 });
 
@@ -44,9 +44,10 @@ Leandro Facchinetti
 `
       )
       .toString()
-  ).toMatchInlineSnapshot(
-    `"<pre><code class=\\"language-text\\"><span class=\\"line\\"><span style=\\"color: #000000\\">Leandro Facchinetti</span></span></code></pre>"`
-  );
+  ).toMatchInlineSnapshot(`
+    "<pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #000000\\">Leandro Facchinetti
+    </span></span></code></pre>"
+  `);
 });
 
 test("unsupported language", async () => {

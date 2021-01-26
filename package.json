@@ -30,10 +30,10 @@
     "clean": "shx rm -rf lib"
   },
   "dependencies": {
-    "hast-util-select": "^4.0.2",
     "hast-util-to-text": "^2.0.1",
     "rehype-parse": "^7.0.1",
-    "unified": "^9.2.0"
+    "unified": "^9.2.0",
+    "unist-util-modify-children": "^2.0.0"
   },
   "peerDependencies": {
     "shiki": "^0.2.7"

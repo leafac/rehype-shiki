@@ -5,7 +5,7 @@ const hastUtilToText = require("hast-util-to-text");
 import * as Shiki from "shiki/dist/highlighter";
 import rehypeParse from "rehype-parse";
 
-const attacher: unified.Attacher<
+const attacher: unified.Plugin<
   [
     {
       highlighter: Shiki.Highlighter;

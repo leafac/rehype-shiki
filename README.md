@@ -14,7 +14,7 @@ $ npm install shiki-rehype shiki
 
 ### Format
 
-Transforms code blocks with the following format:
+Code blocks must have the following format:
 
 ```html
 <pre>

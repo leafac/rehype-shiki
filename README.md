@@ -9,10 +9,27 @@
 ### Installation
 
 ```console
-$ npm install shiki-rehype
+$ npm install shiki-rehype shiki
 ```
 
 ### Example
+
+```console
+$ npm install typescript ts-node unified remark-parse remark-rehype shiki-rehype shiki rehype-stringify
+```
+
+`tsconfig.json`
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+```
 
 `example.ts`
 
@@ -21,8 +38,8 @@ import unified from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeShiki from "shiki-rehype";
-import rehypeStringify from "rehype-stringify";
 import * as shiki from "shiki";
+import rehypeStringify from "rehype-stringify";
 
 (async () => {
   console.log(

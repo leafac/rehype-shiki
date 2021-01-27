@@ -19,7 +19,7 @@ Code blocks must have the following format:
 ```html
 <pre>
 <code class="language-javascript">
-return unified()
+return unified();
 </code>
 </pre>
 ```
@@ -73,7 +73,7 @@ import rehypeStringify from "rehype-stringify";
       .processSync(
         `
 \`\`\`javascript
-return unified()
+return unified();
 \`\`\`
 `
       )
@@ -84,7 +84,7 @@ return unified()
 
 ```console
 $ npx ts-node example.ts
-<pre class="shiki" style="background-color: #FFFFFF"><code><span class="line"><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">unified</span><span style="color: #000000">()</span></span></code></pre>
+<pre class="shiki" style="background-color: #FFFFFF"><code><span class="line"><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">unified</span><span style="color: #000000">();</span></span></code></pre>
 ```
 
 ### Options

@@ -1,6 +1,6 @@
 {
   "name": "shiki-rehype",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Rehype plugin to highlight code blocks with Shiki",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

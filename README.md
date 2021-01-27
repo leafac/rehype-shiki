@@ -19,7 +19,7 @@ Code blocks must have the following format:
 ```html
 <pre>
 <code class="language-javascript">
-// ...
+return unified()
 </code>
 </pre>
 ```
@@ -28,7 +28,7 @@ This is the format produced by [remark-parse](https://github.com/remarkjs/remark
 
 ````markdown
 ```javascript
-// ...
+return unified();
 ```
 ````
 

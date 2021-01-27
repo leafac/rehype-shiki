@@ -6,6 +6,25 @@
 <a href="https://github.com/leafac/shiki-rehype/actions"><img src="https://github.com/leafac/shiki-rehype/workflows/.github/workflows/main.yml/badge.svg" alt="Continuous Integration"></a>
 </p>
 
+Transforms code blocks with the following format:
+
+```html
+<pre>
+<code class="language-javascript">
+// ...
+</code>
+</pre>
+```
+
+This is the format produced by [remark-parse](https://github.com/remarkjs/remark/tree/main/packages/remark-parse) & [remark-rehype](https://github.com/remarkjs/remark-rehype) from the following Markdown:
+
+
+```markdown
+\`\`\`javascript
+// ...
+\`\`\`
+```
+
 ### Installation
 
 ```console

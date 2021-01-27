@@ -6,6 +6,14 @@
 <a href="https://github.com/leafac/shiki-rehype/actions"><img src="https://github.com/leafac/shiki-rehype/workflows/.github/workflows/main.yml/badge.svg" alt="Continuous Integration"></a>
 </p>
 
+### Installation
+
+```console
+$ npm install shiki-rehype shiki
+```
+
+### Format
+
 Transforms code blocks with the following format:
 
 ```html
@@ -18,18 +26,11 @@ Transforms code blocks with the following format:
 
 This is the format produced by [remark-parse](https://github.com/remarkjs/remark/tree/main/packages/remark-parse) & [remark-rehype](https://github.com/remarkjs/remark-rehype) from the following Markdown:
 
-
-```markdown
-\`\`\`javascript
+````markdown
+```javascript
 // ...
-\`\`\`
 ```
-
-### Installation
-
-```console
-$ npm install shiki-rehype shiki
-```
+````
 
 ### Example
 

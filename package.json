@@ -20,7 +20,9 @@
     "url": "https://github.com/leafac/rehype-shiki/issues"
   },
   "homepage": "https://github.com/leafac/rehype-shiki#readme",
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "prettier --check 'src/**/*' && jest",
     "build": "tsc",

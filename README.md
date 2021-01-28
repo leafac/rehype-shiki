@@ -2,7 +2,7 @@
 <h3 align="center"><a href="https://github.com/rehypejs/rehype">Rehype</a> plugin to highlight code blocks with <a href="https://shiki.matsu.io">Shiki</a></h3>
 <p align="center">
 <a href="https://github.com/leafac/rehype-shiki"><img src="https://img.shields.io/badge/Source---" alt="Source"></a>
-<a href="https://www.npmjs.com/package/@leafac/rehype-shiki"><img alt="Package" src="https://badge.fury.io/js/@leafac/rehype-shiki.svg"></a>
+<a href="https://www.npmjs.com/package/@leafac/rehype-shiki"><img alt="Package" src="https://badge.fury.io/js/%40leafac%2Frehype-shiki.svg"></a>
 <a href="https://github.com/leafac/rehype-shiki/actions"><img src="https://github.com/leafac/rehype-shiki/workflows/.github/workflows/main.yml/badge.svg" alt="Continuous Integration"></a>
 </p>
 

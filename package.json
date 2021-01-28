@@ -1,12 +1,12 @@
 {
-  "name": "shiki-rehype",
-  "version": "1.0.1",
+  "name": "@leafac/rehype-shiki",
+  "version": "1.0.0",
   "description": "Rehype plugin to highlight code blocks with Shiki",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leafac/shiki-rehype.git"
+    "url": "git+https://github.com/leafac/rehype-shiki.git"
   },
   "keywords": [
     "shiki",
@@ -17,9 +17,9 @@
   "author": "Leandro Facchinetti",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leafac/shiki-rehype/issues"
+    "url": "https://github.com/leafac/rehype-shiki/issues"
   },
-  "homepage": "https://github.com/leafac/shiki-rehype#readme",
+  "homepage": "https://github.com/leafac/rehype-shiki#readme",
   "scripts": {
     "test": "prettier --check 'src/**/*' && jest",
     "build": "tsc",

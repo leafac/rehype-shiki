@@ -4,21 +4,16 @@
   "description": "Rehype plugin to highlight code blocks with Shiki",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leafac/rehype-shiki.git"
-  },
+  "repository": "leafac/rehype-shiki",
   "keywords": [
     "shiki",
     "syntax",
     "highlight",
     "rehype"
   ],
-  "author": "Leandro Facchinetti",
+  "author": "Leandro Facchinetti <rehype-shiki@leafac.com> (https://leafac.com)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/leafac/rehype-shiki/issues"
-  },
+  "bugs": "https://github.com/leafac/rehype-shiki/issues",
   "homepage": "https://github.com/leafac/rehype-shiki#readme",
   "publishConfig": {
     "access": "public"

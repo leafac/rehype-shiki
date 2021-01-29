@@ -19,7 +19,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "prettier --check \"src/**/*\" && jest",
+    "test": "prettier --check \"src/**/*\" --end-of-line auto && jest",
     "build": "tsc",
     "clean": "shx rm -rf lib"
   },

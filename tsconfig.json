@@ -5,8 +5,8 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./lib/",
-    "rootDir": "./src/",
+    "outDir": "lib/",
+    "rootDir": "src/",
     "strict": true,
     "esModuleInterop": true
   }

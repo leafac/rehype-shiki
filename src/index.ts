@@ -2,7 +2,7 @@ import unified from "unified";
 import unistUtilModifyChildren from "unist-util-modify-children";
 // FIXME: Type.
 const hastUtilToText = require("hast-util-to-text");
-import * as Shiki from "shiki/dist/highlighter";
+import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
 
 const attacher: unified.Plugin<

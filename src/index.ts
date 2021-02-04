@@ -30,8 +30,7 @@ const attacher: unified.Plugin<
       );
       let highlightedCodeHTML: string;
       try {
-        // FIXME: The ‘!’. See https://github.com/shikijs/shiki/pull/114.
-        highlightedCodeHTML = highlighter.codeToHtml!(code, language);
+        highlightedCodeHTML = highlighter.codeToHtml(code, language);
       } catch (error) {
         if (throwOnUnsupportedLanguage) throw error;
         else return;

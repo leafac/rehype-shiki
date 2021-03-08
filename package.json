@@ -24,6 +24,7 @@
     "clean": "shx rm -rf lib"
   },
   "dependencies": {
+    "@leafac/html": "^1.2.1",
     "hast-util-to-text": "^2.0.1",
     "rehype-parse": "^7.0.1",
     "unified": "^9.2.0",

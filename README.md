@@ -79,17 +79,53 @@ return unified();
       )
       .toString()
   );
+
+  console.log();
+
+  console.log(
+    unified()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeShiki, {
+        highlighter: {
+          light: await shiki.getHighlighter({ theme: "light-plus" }),
+          dark: await shiki.getHighlighter({ theme: "dark-plus" }),
+        },
+      })
+      .use(rehypeStringify)
+      .processSync(
+        `
+\`\`\`javascript
+return unified();
+\`\`\`
+`
+      )
+      .toString()
+  );
 })();
 ```
 
 ```console
 $ npx ts-node example.ts
 <pre class="shiki" style="background-color: #FFFFFF"><code><span class="line"><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">unified</span><span style="color: #000000">();</span></span></code></pre>
+
+
+            <div class="rehype-shiki">
+
+                    <div class="light">
+                      <pre class="shiki" style="background-color: #FFFFFF"><code><span class="line"><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">unified</span><span style="color: #000000">();</span></span></code></pre>
+                    </div>
+
+                    <div class="dark">
+                      <pre class="shiki" style="background-color: #1E1E1E"><code><span class="line"><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">unified</span><span style="color: #D4D4D4">();</span></span></code></pre>
+                    </div>
+
+            </div>
 ```
 
 ### Options
 
-- `highlighter` (required): An instance of the Shiki highlighter.
+- `highlighter` (required): An instance of the Shiki highlighter, or an object whose keys are identifiers and values are Shiki highlighters, in which case @leafac/rehype-shiki combines the outputs of all the highlighters.
 - `throwOnUnsupportedLanguage` (default: `false`): A boolean indicating whether to throw an exception if a code block refers to an unsupported language.
 
 ### Security
@@ -106,5 +142,6 @@ rehype-shiki is great! That’s how I learned about Shiki and I fell in love wit
    1. The Shiki highlighter instance is reused on every invocation of the processor, [instead of being recreated every time you call the processor](https://github.com/rsclarke/rehype-shiki/blob/3ebaeab3297d1cbe9ac75e2294ab636bbe250541/index.js#L38-L43).
    2. The transformer is synchronous, so you may use it with `.processSync()`.
 4. Instead of [looking at the tokens produced by Shiki and generating hast](https://github.com/rsclarke/rehype-shiki/blob/3ebaeab3297d1cbe9ac75e2294ab636bbe250541/index.js#L69-L97), [@leafac/rehype-shiki lets Shiki produce HTML and parses the result](https://github.com/leafac/rehype-shiki/blob/a745b01d98608fb934c1bdbe9a1399e8b9dec1ed/src/index.ts#L32-L39). The advantage is that [when Shiki improves the output with things like italics](https://github.com/shikijs/shiki/pull/23) @leafac/rehype-shiki will pick the changes up with no extra work. The disadvantage is that we’re producing HTML as a string and then parsing it right back; this is slower, but in most cases it won’t matter and I think the previous advantages outweighs this disadvantage. (Also, the `language-*` class will be removed from the produced HTML, so you may need to adapt your CSS.)
+5. Support for multiple highlighters.
 
 That said, [I contacted the maintainers of rehype-shiki and try to merge the code bases](https://github.com/rsclarke/rehype-shiki/issues/49). We’ll see…

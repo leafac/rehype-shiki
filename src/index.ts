@@ -4,11 +4,12 @@ import unistUtilModifyChildren from "unist-util-modify-children";
 const hastUtilToText = require("hast-util-to-text");
 import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
+import html from "@leafac/html";
 
 const attacher: unified.Plugin<
   [
     {
-      highlighter: Shiki.Highlighter;
+      highlighter: Shiki.Highlighter | { [key: string]: Shiki.Highlighter };
       throwOnUnsupportedLanguage?: boolean;
     }
   ]
@@ -28,14 +29,28 @@ const attacher: unified.Plugin<
       const language = node.children[0].properties.className[0].slice(
         "language-".length
       );
-      let highlightedCodeHTML: string;
+      let output: string;
       try {
-        highlightedCodeHTML = highlighter.codeToHtml(code, language);
+        if (typeof highlighter.codeToHtml === "function")
+          output = highlighter.codeToHtml(code, language);
+        else
+          output = html`
+            <div class="rehype-shiki">
+              $${Object.entries(highlighter).map(
+                ([name, highlighter]: [string, Shiki.Highlighter]) =>
+                  html`
+                    <div class="${name}">
+                      $${highlighter.codeToHtml(code, language)}
+                    </div>
+                  `
+              )}
+            </div>
+          `;
       } catch (error) {
         if (throwOnUnsupportedLanguage) throw error;
         else return;
       }
-      parent.children[index] = hastParser.parse(highlightedCodeHTML);
+      parent.children[index] = hastParser.parse(output);
     }
   })(tree);
 };

@@ -1,12 +1,12 @@
-import unified from "unified";
-import unistUtilModifyChildren from "unist-util-modify-children";
+import unifiedTypes, { unified } from "unified";
+import { modifyChildren as unistUtilModifyChildren } from "unist-util-modify-children";
 // FIXME: Type.
 const hastUtilToText = require("hast-util-to-text");
 import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
 import html from "@leafac/html";
 
-const attacher: unified.Plugin<
+const attacher: unifiedTypes.Plugin<
   [
     {
       highlighter: Shiki.Highlighter | { [key: string]: Shiki.Highlighter };

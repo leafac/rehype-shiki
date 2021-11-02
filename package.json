@@ -18,6 +18,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
   "scripts": {
     "test": "prettier --check \"source/**/*\" --end-of-line auto && npm run prepare && jest",
     "prepare": "tsc"

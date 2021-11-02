@@ -19,7 +19,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "prettier --check \"src/**/*\" --end-of-line auto && npm prepare && jest",
+    "test": "prettier --check \"source/**/*\" --end-of-line auto && npm prepare && jest",
     "prepare": "tsc"
   },
   "dependencies": {

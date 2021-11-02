@@ -6,6 +6,7 @@ import HastUtilToTextTypes, {
 import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
 import html from "@leafac/html";
+import unist from "unist";
 
 const attacher: unifiedTypes.Plugin<
   [
@@ -53,7 +54,7 @@ const attacher: unifiedTypes.Plugin<
       }
       parent.children[index] = hastParser.parse(output);
     }
-  })(tree);
+  })(tree as unist.Parent);
 };
 
 const hastParser = unified().use(rehypeParse, { fragment: true });

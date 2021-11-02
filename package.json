@@ -19,7 +19,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "prettier --check \"src/**/*\" --end-of-line auto && jest",
+    "test": "prettier --check \"src/**/*\" --end-of-line auto && npm prepare && jest",
     "prepare": "tsc"
   },
   "dependencies": {
@@ -45,7 +45,6 @@
     "typescript": "^4.4.4"
   },
   "jest": {
-    "rootDir": "source",
-    "preset": "ts-jest"
+    "rootDir": "./distribution/"
   }
 }

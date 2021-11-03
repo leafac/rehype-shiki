@@ -145,3 +145,10 @@ rehype-shiki is great! That’s how I learned about Shiki and I fell in love wit
 5. Support for multiple highlighters.
 
 That said, [I contacted the maintainers of rehype-shiki and try to merge the code bases](https://github.com/rsclarke/rehype-shiki/issues/49). We’ll see…
+
+### Changelog
+
+#### 2.0.0
+
+- [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+- Compatible with unified 10.

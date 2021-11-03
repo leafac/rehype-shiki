@@ -3,7 +3,7 @@ import { modifyChildren as unistUtilModifyChildren } from "unist-util-modify-chi
 import { toText as hastUtilToText } from "hast-util-to-text";
 import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
-import html from "@leafac/html";
+import { html } from "@leafac/html";
 
 const attacher: unifiedTypes.Plugin<
   [
@@ -26,7 +26,7 @@ const attacher: unifiedTypes.Plugin<
         typeof node.children[0].properties.className[0] === "string" &&
         node.children[0].properties.className[0].startsWith("language-")
       ) {
-        const code = hastUtilToText(node);
+        const code = hastUtilToText(node).slice(0, -1);
         const language = node.children[0].properties.className[0].slice(
           "language-".length
         );

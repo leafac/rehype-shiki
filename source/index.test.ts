@@ -44,10 +44,9 @@ Leandro Facchinetti
 `
       )
       .toString()
-  ).toMatchInlineSnapshot(`
-    "<pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #000000\\">Leandro Facchinetti
-    </span></span></code></pre>"
-  `);
+  ).toMatchInlineSnapshot(
+    `"<pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #000000\\">Leandro Facchinetti</span></span></code></pre>"`
+  );
 });
 
 test("unsupported language", async () => {
@@ -118,17 +117,17 @@ return unified()
       .toString()
   ).toMatchInlineSnapshot(`
     "
-                <div class=\\"rehype-shiki\\">
-                  
-                        <div class=\\"light\\">
-                          <pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>
-                        </div>
-                      
-                        <div class=\\"dark\\">
-                          <pre class=\\"shiki\\" style=\\"background-color: #1E1E1E\\"><code><span class=\\"line\\"><span style=\\"color: #C586C0\\">return</span><span style=\\"color: #D4D4D4\\"> </span><span style=\\"color: #DCDCAA\\">unified</span><span style=\\"color: #D4D4D4\\">()</span></span></code></pre>
-                        </div>
-                      
-                </div>
-              "
+                  <div class=\\"rehype-shiki\\">
+                    
+                          <div class=\\"light\\">
+                            <pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>
+                          </div>
+                        
+                          <div class=\\"dark\\">
+                            <pre class=\\"shiki\\" style=\\"background-color: #1E1E1E\\"><code><span class=\\"line\\"><span style=\\"color: #C586C0\\">return</span><span style=\\"color: #D4D4D4\\"> </span><span style=\\"color: #DCDCAA\\">unified</span><span style=\\"color: #D4D4D4\\">()</span></span></code></pre>
+                          </div>
+                        
+                  </div>
+                "
   `);
 });

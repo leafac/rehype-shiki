@@ -21,17 +21,18 @@ const attacher: unifiedTypes.Plugin<
   (tree) => {
     unistUtilModifyChildren((node, index, parent) => {
       if (
-        node.tagName === "pre" &&
-        Array.isArray(node.children) &&
-        node.children.length === 1 &&
-        node.children[0].tagName === "code" &&
-        typeof node.children[0].properties === "object" &&
-        Array.isArray(node.children[0].properties.className) &&
-        typeof node.children[0].properties.className[0] === "string" &&
-        node.children[0].properties.className[0].startsWith("language-")
+        node.type === "node" &&
+        node.data?.tagName === "pre" &&
+        Array.isArray(node.data?.children) &&
+        node.data?.children.length === 1 &&
+        node.data?.children[0].tagName === "code" &&
+        typeof node.data?.children[0].properties === "object" &&
+        Array.isArray(node.data?.children[0].properties.className) &&
+        typeof node.data?.children[0].properties.className[0] === "string" &&
+        node.data?.children[0].properties.className[0].startsWith("language-")
       ) {
         const code = hastUtilToText(node as HastUtilToTextTypes.HastNode);
-        const language = node.children[0].properties.className[0].slice(
+        const language = node.data?.children[0].properties.className[0].slice(
           "language-".length
         );
         let output: string;

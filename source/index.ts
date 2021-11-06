@@ -51,7 +51,11 @@ const attacher: unifiedTypes.Plugin<
           if (throwOnUnsupportedLanguage) throw error;
           else return;
         }
-        parent.children[index] = hastParser.parse(output);
+        const parsedOutput = hastParser.parse(output);
+        parsedOutput.children.find(
+          (child) => child.type === "element"
+        )!.position = node.position;
+        parent.children[index] = parsedOutput;
       }
     })(tree as any);
   };

@@ -61,6 +61,10 @@ That said, [I contacted the maintainers of rehype-shiki and try to merge the cod
 
 ### Changelog
 
+#### 2.1.0
+
+- Added a feature that preserves the `position` of the top `element` node. Useful for products that need to map the HTML back to the Markdown that generated it (see tests).
+
 #### 2.0.0
 
 - [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).

@@ -31,7 +31,7 @@
     "unist-util-modify-children": "^3.0.0"
   },
   "peerDependencies": {
-    "shiki": "^0.9.12"
+    "shiki": "^0.10.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",
@@ -42,7 +42,7 @@
     "rehype-stringify": "^9.0.2",
     "remark-parse": "^10.0.0",
     "remark-rehype": "^10.0.0",
-    "shiki": "^0.9.12",
+    "shiki": "^0.10.0",
     "typescript": "^4.4.4",
     "unist-util-visit": "^4.1.0"
   },

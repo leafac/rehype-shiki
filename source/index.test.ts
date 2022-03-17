@@ -1,6 +1,6 @@
 import unifiedTypes, { unified } from "unified";
 import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
+import remarkRehype, { HastRoot } from "remark-rehype";
 import rehypeShiki from ".";
 import rehypeStringify from "rehype-stringify";
 import * as shiki from "shiki";
@@ -232,4 +232,27 @@ after
     <p data-position=\\"{&#x22;start&#x22;:{&#x22;line&#x22;:14,&#x22;column&#x22;:1,&#x22;offset&#x22;:62},&#x22;end&#x22;:{&#x22;line&#x22;:14,&#x22;column&#x22;:5,&#x22;offset&#x22;:66}}\\">some</p>
     <p data-position=\\"{&#x22;start&#x22;:{&#x22;line&#x22;:16,&#x22;column&#x22;:1,&#x22;offset&#x22;:68},&#x22;end&#x22;:{&#x22;line&#x22;:16,&#x22;column&#x22;:6,&#x22;offset&#x22;:73}}\\">after</p>"
   `);
+});
+
+test("only one root for separate transforms", async () => {
+  const ast = unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(function () {
+      this.Compiler = (html) => html;
+    }).processSync(`
+\`\`\`js
+console.log(value == null)
+\`\`\`
+
+  `).result as HastRoot;
+  const transformedAst = unified()
+    .use(rehypeShiki, {
+      highlighter: await shiki.getHighlighter({ theme: "light-plus" }),
+    })
+    .runSync(ast);
+
+  let rootCount = 0;
+  unistUtilVisit(transformedAst, "root", () => rootCount++);
+  expect(rootCount).toBe(1);
 });

@@ -55,7 +55,8 @@ const attacher: unifiedTypes.Plugin<
         parsedOutput.children.find(
           (child) => child.type === "element"
         )!.position = node.position;
-        parent.children[index] = parsedOutput;
+        parent.children.splice(index, 1, ...parsedOutput.children);
+        return index + parsedOutput.children.length;
       }
     })(tree as any);
   };

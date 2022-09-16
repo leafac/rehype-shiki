@@ -1,6 +1,6 @@
 {
   "name": "@leafac/rehype-shiki",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Rehype plugin to highlight code blocks with Shiki",
   "exports": "./distribution/index.js",
   "types": "./distribution/index.d.ts",

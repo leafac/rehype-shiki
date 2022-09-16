@@ -22,6 +22,7 @@ const attacher: unifiedTypes.Plugin<
         node.children.length === 1 &&
         node.children[0].tagName === "code" &&
         typeof node.children[0].properties === "object" &&
+        node.children[0].properties !== null &&
         Array.isArray(node.children[0].properties.className) &&
         typeof node.children[0].properties.className[0] === "string" &&
         node.children[0].properties.className[0].startsWith("language-")

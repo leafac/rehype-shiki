@@ -37,7 +37,7 @@
     "unist-util-modify-children": "^3.0.0"
   },
   "peerDependencies": {
-    "shiki": "^0.10.0"
+    "shiki": "^0.11.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.2",

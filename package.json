@@ -14,7 +14,7 @@
   "author": "Leandro Facchinetti <rehype-shiki@leafac.com> (https://leafac.com)",
   "license": "MIT",
   "bugs": "https://github.com/leafac/rehype-shiki/issues",
-  "homepage": "https://github.com/leafac/rehype-shiki#readme",
+  "homepage": "https://github.com/leafac/rehype-shiki",
   "funding": [
     "https://patreon.com/leafac",
     "https://paypal.me/LeandroFacchinettiEU",
@@ -24,7 +24,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "type": "module",
   "scripts": {
     "test": "prettier --check \"./source/**/*\" --end-of-line auto && npm run prepare && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "prepare": "tsc"

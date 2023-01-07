@@ -28,6 +28,39 @@ return unified()
   );
 });
 
+test("supported language in list", async () => {
+  expect(
+    unified()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeShiki, {
+        highlighter: await shiki.getHighlighter({ theme: "light-plus" }),
+      })
+      .use(rehypeStringify)
+      .processSync(
+        `
+- One
+
+- Two
+  \`\`\`javascript
+  return unified()
+  \`\`\`
+`
+      )
+      .toString()
+  ).toMatchInlineSnapshot(`
+    "<ul>
+    <li>
+    <p>One</p>
+    </li>
+    <li>
+    <p>Two</p>
+    <pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>
+    </li>
+    </ul>"
+  `);
+});
+
 test("text", async () => {
   expect(
     unified()

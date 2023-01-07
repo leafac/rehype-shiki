@@ -1,5 +1,5 @@
 import { Plugin, unified } from "unified";
-import { modifyChildren as unistUtilModifyChildren } from "unist-util-modify-children";
+import { Node, Parent, visit as unistUtilVisit } from "unist-util-visit";
 import { toText as hastUtilToText } from "hast-util-to-text";
 import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
@@ -14,8 +14,8 @@ const attacher: Plugin<
   ]
 > =
   ({ highlighter, throwOnUnsupportedLanguage = false }) =>
-  (tree) => {
-    unistUtilModifyChildren((node: any, index, parent) => {
+  (tree) =>
+    unistUtilVisit(tree, (node: any, index, parent) => {
       if (
         node.tagName === "pre" &&
         Array.isArray(node.children) &&
@@ -57,10 +57,9 @@ const attacher: Plugin<
           (child) => child.type === "element"
         )!.position = node.position;
         parent.children.splice(index, 1, ...parsedOutput.children);
-        return index + parsedOutput.children.length;
+        return index! + parsedOutput.children.length;
       }
-    })(tree as any);
-  };
+    });
 
 const hastParser = unified().use(rehypeParse, { fragment: true });
 

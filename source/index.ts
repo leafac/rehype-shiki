@@ -1,11 +1,11 @@
-import unifiedTypes, { unified } from "unified";
+import { Plugin, unified } from "unified";
 import { modifyChildren as unistUtilModifyChildren } from "unist-util-modify-children";
 import { toText as hastUtilToText } from "hast-util-to-text";
 import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
 import { html } from "@leafac/html";
 
-const attacher: unifiedTypes.Plugin<
+const attacher: Plugin<
   [
     {
       highlighter: Shiki.Highlighter | { [key: string]: Shiki.Highlighter };

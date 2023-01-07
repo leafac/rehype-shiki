@@ -24,8 +24,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
   "scripts": {
-    "test": "prettier --check \"./source/**/*\" --end-of-line auto && npm run prepare && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "prettier": "prettier --end-of-line auto \"./source/**/*\"",
+    "format": "npm run prettier -- --write",
+    "test": "npm run prettier -- --check && npm run prepare && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "prepare": "tsc"
   },
   "dependencies": {

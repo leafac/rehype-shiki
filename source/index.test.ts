@@ -1,10 +1,10 @@
-import unifiedTypes, { unified } from "unified";
+import { Plugin, unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype, { HastRoot } from "remark-rehype";
-import rehypeShiki from ".";
+import rehypeShiki from "./index.js";
 import rehypeStringify from "rehype-stringify";
 import * as shiki from "shiki";
-import { visit as unistUtilVisit } from "unist-util-visit";
+import { Node, visit as unistUtilVisit } from "unist-util-visit";
 
 test("supported language", async () => {
   expect(
@@ -26,6 +26,39 @@ return unified()
   ).toMatchInlineSnapshot(
     `"<pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>"`
   );
+});
+
+test("supported language in list", async () => {
+  expect(
+    unified()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeShiki, {
+        highlighter: await shiki.getHighlighter({ theme: "light-plus" }),
+      })
+      .use(rehypeStringify)
+      .processSync(
+        `
+- One
+
+- Two
+  \`\`\`javascript
+  return unified()
+  \`\`\`
+`
+      )
+      .toString()
+  ).toMatchInlineSnapshot(`
+    "<ul>
+    <li>
+    <p>One</p>
+    </li>
+    <li>
+    <p>Two</p>
+    <pre class=\\"shiki\\" style=\\"background-color: #FFFFFF\\"><code><span class=\\"line\\"><span style=\\"color: #AF00DB\\">return</span><span style=\\"color: #000000\\"> </span><span style=\\"color: #795E26\\">unified</span><span style=\\"color: #000000\\">()</span></span></code></pre>
+    </li>
+    </ul>"
+  `);
 });
 
 test("text", async () => {
@@ -134,9 +167,9 @@ return unified()
 });
 
 test("preserve position", async () => {
-  const positionSaver: unifiedTypes.Plugin = () => (tree) => {
-    unistUtilVisit(tree, (node) => {
-      if ((node as any).properties !== undefined && node.position !== undefined)
+  const positionSaver: Plugin = () => (tree) => {
+    unistUtilVisit(tree, (node: Node) => {
+      if (`properties` in node && node.position !== undefined)
         (node as any).properties.dataPosition = JSON.stringify(node.position);
     });
   };

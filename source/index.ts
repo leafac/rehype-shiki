@@ -1,5 +1,5 @@
 import { Plugin, unified } from "unified";
-import { Node, Parent, visit as unistUtilVisit } from "unist-util-visit";
+import { visit as unistUtilVisit } from "unist-util-visit";
 import { toText as hastUtilToText } from "hast-util-to-text";
 import * as Shiki from "shiki";
 import rehypeParse from "rehype-parse";
